@@ -1,173 +1,103 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>عد تنازلي — حتى 20 سبتمبر 2025</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>منحة البطالة</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0f1724;
-      --card:#0b1220;
-      --accent:#06b6d4;
-      --muted:#9aa4b2;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-family: "Cairo", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background:linear-gradient(135deg,var(--bg), #081122 70%);
-      color:#e6eef6;
-      padding:20px;
-    }
-    .card{
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:16px;
-      padding:28px;
-      width:min(850px,98%);
-      box-shadow:0 10px 30px rgba(2,6,23,0.6);
-      border:1px solid rgba(255,255,255,0.03);
-    }
-    .header{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom:18px;
-    }
-    .title{
-      font-size:20px;
-      font-weight:700;
-      letter-spacing:0.2px;
-    }
-    .subtitle{color:var(--muted); font-size:13px}.target{
-  background:rgba(255,255,255,0.02);
-  padding:8px 12px;
-  border-radius:8px;
-  font-size:13px;
-  color:var(--accent);
-  font-weight:600;
+      --brand:#2b7a78;
+      --brand-dark:#1b5c57;
+      --text:#1c1e21;
+      --muted:#65707b;
+      --border:#e7eaee;
+      --bg:#ffffff;
+      --chip:#f4f7fb;
+    }*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:"Cairo", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  color:var(--text);
+  background:var(--bg);
 }
 
-.countdown{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:14px;
-  margin-top:12px;
+header{
+  position:sticky; top:0;
+  background:#fff;
+  box-shadow:0 1px 0 var(--border);
+  z-index:10;
 }
-@media (max-width:560px){
-  .countdown{grid-template-columns:repeat(2,1fr)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 14px;max-width:920px;margin:auto}
+.brand{display:flex;align-items:center;gap:10px}
+.logo{width:125px;height:auto;display:block}
+.menu-btn{width:36px;height:36px;border-radius:10px;border:1px solid var(--border);background:linear-gradient(#fff,#fbfbfb);display:grid;place-items:center;cursor:pointer}
+.menu-btn svg{width:18px;height:18px}
+
+.hero{max-width:920px;margin:0 auto;padding:26px 16px 32px}
+h1{margin:12px 0 18px;font-size:38px;line-height:1.15;color:var(--brand);letter-spacing:.2px;font-weight:800}
+
+.lead{font-size:17px;line-height:1.9;color:#3a3f44;margin:0 0 20px}
+
+.cta{display:inline-block;background:var(--brand-dark);color:#fff;text-decoration:none;border:none;border-radius:12px;padding:12px 22px;font-size:18px;font-weight:700;cursor:pointer;transition:.2s ease;box-shadow:0 4px 14px rgba(0,0,0,.05)}
+.cta:hover{transform:translateY(-1px);filter:brightness(1.04)}
+
+.ill-wrap{display:flex;justify-content:center;padding:18px 0 12px}
+.ill{max-width:520px;width:100%}
+
+@media (min-width:768px){
+  h1{font-size:44px}
+  .lead{font-size:18px}
 }
-.unit{
-  background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-  border-radius:12px;
-  padding:18px;
-  text-align:center;
-  border:1px solid rgba(255,255,255,0.02);
-  min-width:120px;
-}
-.number{
-  font-size:44px;
-  font-weight:800;
-  line-height:1;
-  letter-spacing:0.5px;
-}
-.label{margin-top:6px; color:var(--muted); font-size:13px; font-weight:600}
-
-.footer{margin-top:16px; text-align:center; color:var(--muted); font-size:13px}
-.small{font-size:12px; color:#aab6c2}
-
-.pulse{animation:pulse 1.2s infinite}
-@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.02)}100%{transform:scale(1)}}
-
-.done{display:flex;flex-direction:column;align-items:center;gap:10px;padding:24px}
-.done h2{margin:0;color:var(--accent)}
-
   </style>
 </head>
 <body>
-  <div class="card">
-    <div class="header">
-      <div>
-        <div class="title">عد تنازلي حتى 20 سبتمبر 2025</div>
-        <div class="subtitle">يعرض بالأيام والساعات والدقائق والثواني (محدث بالزمن المحلي للجهاز)</div>
+  <header>
+    <div class="bar">
+      <div class="menu-btn" aria-label="القائمة">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#334155" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
       </div>
-      <div class="target" id="targetLabel">20 سبتمبر 2025 — 00:00:00</div>
-    </div><div id="countArea">
-  <div class="countdown" aria-live="polite">
-    <div class="unit pulse">
-      <div class="number" id="days">0</div>
-      <div class="label">أيام</div>
+      <div class="brand" aria-label="الوكالة الوطنية للتشغيل">
+        <svg class="logo" viewBox="0 0 320 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Agence Nationale de l'Emploi">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1">
+              <stop offset="0" stop-color="#2b7a78"/>
+              <stop offset="1" stop-color="#3aa7a2"/>
+            </linearGradient>
+          </defs>
+          <circle cx="30" cy="30" r="12" fill="#f59e0b"/>
+          <circle cx="64" cy="30" r="18" fill="none" stroke="url(#g)" stroke-width="6"/>
+          <circle cx="100" cy="30" r="12" fill="none" stroke="#1b5c57" stroke-width="6"/>
+          <text x="130" y="23" font-family="Cairo, Arial" font-size="12" fill="#1b5c57">الوكالة الوطنية للتشغيل</text>
+          <text x="130" y="42" font-family="Cairo, Arial" font-size="11" fill="#1b5c57" opacity=".9">Agence Nationale de l'Emploi</text>
+        </svg>
+      </div>
+      <div style="width:36px"></div>
     </div>
-    <div class="unit pulse">
-      <div class="number" id="hours">0</div>
-      <div class="label">ساعات</div>
+  </header>  
+
+  <main class="hero">
+    <h1>منحة البطالة</h1>
+    <p class="lead">
+      مرحباً بكم على المنصة الرقمية لمنحة البطالة. يمكنكم من خلال هذه المنصة التعرف على الإجراءات الرسمية والشروط التي تحدد كيفية الاستفادة من منحة البطالة مع توضيح الفئات المعنية بها. تسمح لكم المنصة بالتسجيل الأولي وحجز موعد أو تعديله لدراسة ملفكم لدى الملحقات المحلية للتشغيل وذلك حرصاً من الوكالة الوطنية للتشغيل على التكفل الأفضل بطالبي العمل وتقديم خدمات ذات جودة.
+    </p>
+
+    <!-- زر التسجيل بالرابط المطلوب -->
+    <a href="https://youcefcheria.github.io/Youcef/" class="cta" target="_blank">التسجيل</a>
+
+    <div class="ill-wrap">
+      <!-- الرسمة SVG -->
+      <svg class="ill" viewBox="0 0 760 380" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- المحتوى SVG كيما هو -->
+      </svg>
     </div>
-    <div class="unit pulse">
-      <div class="number" id="minutes">0</div>
-      <div class="label">دقائق</div>
-    </div>
-    <div class="unit pulse">
-      <div class="number" id="seconds">0</div>
-      <div class="label">ثواني</div>
-    </div>
-  </div>
-</div>
-
-<div class="footer">
-  <div class="small">الوقت يحسب بحسب توقيت جهاز المستخدم المحلي. عند الوصول إلى التاريخ سيُعرض تنبيه.</div>
-</div>
-
-  </div>  <script>
-    // الهدف: منتصف ليل 20 سبتمبر 2025 بالتوقيت المحلي للجهاز
-    const target = new Date(2025, 8, 20, 0, 0, 0); // شهر سبتمبر = 8 (0-based)
-
-    const daysEl = document.getElementById('days');
-    const hoursEl = document.getElementById('hours');
-    const minutesEl = document.getElementById('minutes');
-    const secondsEl = document.getElementById('seconds');
-    const countArea = document.getElementById('countArea');
-    const targetLabel = document.getElementById('targetLabel');
-
-    function pad(n){return String(n).padStart(2,'0');}
-
-    function update(){
-      const now = new Date();
-      let diff = target - now; // بالميلي ثانية
-
-      // إذا وصلنا أو تجاوزنا التاريخ
-      if(diff <= 0){
-        // نعرض رسالة "وصلنا للتاريخ" مع الوقت السلبي (مر عليه)
-        countArea.innerHTML = `
-          <div class="done">
-            <h2>وصلنا إلى 20 سبتمبر 2025 🎉</h2>
-            <div class="small">يمكنك تعديل التاريخ أو إعادة تشغيل العد إذا رغبت.</div>
-          </div>
-        `;
-        clearInterval(intervalId);
-        return;
-      }
-
-      const sec = Math.floor(diff / 1000);
-      const days = Math.floor(sec / (3600*24));
-      const hours = Math.floor((sec % (3600*24)) / 3600);
-      const minutes = Math.floor((sec % 3600) / 60);
-      const seconds = Math.floor(sec % 60);
-
-      daysEl.textContent = days.toLocaleString('en-US');
-      hoursEl.textContent = pad(hours);
-      minutesEl.textContent = pad(minutes);
-      secondsEl.textContent = pad(seconds);
-    }
-
-    // تحديث فوري ثم كل ثانية
-    update();
-    const intervalId = setInterval(update, 1000);
-
-    // للمطور: إذا أردت أن يكون الوقت حتى 23:59:59 بدل بداية اليوم، غيّر target إلى (2025,8,20,23,59,59)
-  </script></body>
+  </main>
+</body>
 </html>
